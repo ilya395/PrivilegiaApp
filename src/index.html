@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ЖК "Привилегия"</title>
+        <base href="[[!++site_url]]" />
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="yandex-verification" content="4fa7059d9e449793" />
+        <meta name="google-site-verification" content="l70Ef8DwCz-NIJYN5nXjzwn-By3_mAl-mknB_TyJ9gQ" />
+        <meta name="description" content="Жилой комплекс европейского уровня с квартирами бизнес-класса"/>
+    
+        <!-- <link rel="stylesheet" href="temps/swiper/swiper.min.css">
+        <link rel="stylesheet" href="temps/css/index.css">
+        <link rel="stylesheet" href="temps/css/mobile.css"> -->
+        <link rel="shortcut icon" type="image/png" href="temps/img/favs/favicon.png" sizes="16x16">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+        <script src="temps/js/service/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+        <script src="temps/js/service/phone-ru.min.js" type="text/javascript"></script>
+        <script src="temps/swiper/swiper.js"></script> -->
+
+        <!-- <script src="temps/js/service/jquery.cookie.js" type="text/javascript"></script> -->
+        <!-- <script src="temps/js/service/test.cookie.js" type="text/javascript"></script> -->
+
+        <!-- <script src="temps/js/service/jquery.ba-throttle-debounce.min.js"></script>
+        <script src="temps/js/service/jquery.url.param.js"></script>
+        <script src="temps/js/index.js"></script> -->
+
+        <!-- popup -->
+        <!-- <link rel="stylesheet" href="popup/css/main.css"> -->
+        <!-- <link rel="stylesheet" href="css/libs.min.css"> -->
+        <!-- /popup -->
+ 
+
+    </head>
+<body id="main-page">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK48NSW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- exit-popup -->
+    <div class="exit-overlay">
+        <div class="exit-popup">
+            <div class="exit-wr">
+                <div class="exit-top">
+                    <h1 class="exit-heading">Квартира <br>дня</h1>
+                    <p class="exit-paragraph"><strong>Получите индивидуальное предложение</strong> на двух—<br>и трехкомнатные квартиры</p>
+                </div>
+                <div class="form-block">
+                    <div class="form-wrapper">
+                        <form id="exit-form" class="exit-form">
+                            <input type="tel" class="exit-input phonemask" name="phone" placeholder="Номер телефона">
+                            <input type="submit" value="Скачать предложение ~ 1,3 mb" class="exit-submit-button">
+                            <div class="exit-check-wr">
+                                <input type="checkbox" id="checkbox-2" name="agree" class="exit-checkbox" checked>
+                                <label for="checkbox-2" class="exit-label">Согласен на обработку персональных данных</label>
+                            </div>
+                        </form>
+                        <div class="success_message form-done">
+                            <div class="success_text">Спасибо за проявленный интерес!</div>
+                            <a href="temps/pics/Privilegy_29_01.pdf" class="success-d-button" download>PDF ~ 1,3 mb</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="exit-close">Закрыть</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function(){
+            $(document).ready(function() {
+                $('.exit-overlay .exit-close').click(function() {
+                    $('.exit-overlay').fadeOut();
+                });
+                
+                $('.exit-overlay').click(function(e) {
+                    if($(e.target).hasClass('exit-popup')) {
+                        $('.exit-overlay').fadeOut();
+                    }
+                });
+                
+                setTimeout(function() {
+                    $('.exit-overlay').fadeIn();
+                }, 5000);
+                
+            });
+            
+            
+            $(document).on('is_sucsessful', function(event, response) {
+                var form = response.form;
+                
+                $('.exit-overlay form').css('display', 'none');
+                $('.exit-overlay .success_message').css('display', 'block');
+                
+                yaCounter50835075.reachGoal('daysflat');
+                gtag('event', 'submit', {'event_category': 'form','event_label': 'daysflat'});
+                
+            });            
+        });
+    </script>
+    <!-- /exit-popup -->
+    
+    <!-- m_header -->
+    <!-- -->
+    <div class="overlay">
+    
+        <div class="modal complex-modal" id="complex-modal"></div>
+        
+        <div class="modal form-modal">
+            <div class="close"><img src="temps/img/catalog/close.png"></div>
+            <div class="main-form">
+                <h1>Есть вопросы?</h1>
+                <p>Оставьте свой номер, мы перезвоним</p>
+                <form action="">
+                    <div class="form-el-wr">
+                        <input type="text" name="phone" placeholder="+7(___)___-__-__" class="phonemask">
+                        <button><img src="temps/img/catalog/btn-ar.png"></button>
+                    </div>
+                    <div class="toCenter">
+                        <input type="checkbox" id="agree" name="agree" checked>
+                        <label for="agree">согласен на <a href="[[~3]]">обработку персональных данных</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="modal ipoteka-modal">
+            <div class="close"><img src="temps/img/catalog/close.png"></div>
+            <div class="main-form">
+                <h1>Консультация по ипотеке</h1>
+                <p>Оставьте свой номер, мы перезвоним</p>
+                <form action="">
+                    <div class="form-el-wr">
+                        <input type="text" name="phone" placeholder="+7(___)___-__-__" class="phonemask">
+                        <button><img src="temps/img/catalog/btn-ar.png"></button>
+                    </div>
+                    <div class="toCenter">
+                        <input type="checkbox" id="agree" name="agree" checked>
+                        <label for="agree">согласен на <a href="#">обработку персональных данных</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="modal thnk-modal">
+            <div class="close"><img src="temps/img/catalog/close.png"></div>
+            <h1>Спасибо!</h1>
+            <p>Мы свяжемся с Вами в ближайшее время</p>
+            <div class="continue">продолжить</div>
+        </div>
+        
+    </div>
+    <!-- -->
+
+    <!-- -->
+    <div class="menu-mob">
+        <div class="inside">
+            <div class="logo"><a href="#"><img src="temps/img/logo-mob.png"></a></div>
+            <nav>
+                <!--<li><a href="#complex" [[+phx:if=`[[*id]]`:is=`1`:then=`class="scrollto"`]]>О комплексе<div class="underline"></div></a></li>-->
+                <li><a href="#">Застройщик<div class="underline"></div></a></li>
+                <li><a href="#">Документация<div class="underline"></div></a></li>
+                <!-- <li><a href="#contacts" [[+phx:if=`[[*id]]`:is=`1`:then=`class="scrollto"`]]>Контакты<div class="underline"></div></a></li> -->
+            </nav>
+            <div class="socialnets">
+                <a href="https://vk.com/privilegiadom" target="_blank"><img src="temps/img/vk-mob.png"></a>
+                <a href="https://fb.me/privilegiadom.ru" target="_blank"><img src="temps/img/fb-mob.png"></a>
+                <a href="https://www.instagram.com/privilegiadom/" target="_blank"><img src="temps/img/inst-mob.png"></a>
+            </div>
+            <p>Почта: <a href="mailoto:press@norvegian.ru">press@privilegiadom.ru</a><br>
+               Телефон: <a href="tel:+78432072469">+7 (843) 207-24-69</a>
+            </p>
+            <p class="light">Место строительства</p>
+            <p>
+                <strong>Место строительства:</strong>
+                г.&nbsp;Казань, <br>
+                ул. Братьев Касимовых, 40В
+            </p>
+            <p>
+                пн-пт 9:00-20:00
+                <br>
+                сб-вс 10:00-17:00
+                <br>
+                *Уточнить график работы и более подробную информацию о работе отделов продаж можно по телефону +7 (843) 207-24-69.
+            </p>
+        </div>
+        <div class="close-mob"><img src="temps/img/close-mob.png"></div>
+    </div>
+    <!-- -->
+    <header>
+        <div class="container">
+            <div class="burger mobile">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="logo desktop"><a route="/" href="/"><img src="temps/img/logo.png"></a></div>
+            <div class="logo mobile"><a route="/" href="/"><img src="temps/img/logo-footer.png"></a></div>
+            <nav>
+                <!-- <li><a href="#complex" [+phx:if=`[*id]]`:is=`1`:then=`class="scrollto"`]]>О комплексе</a></li> -->
+                <li><a route="/sposobyi-oplatyi" href="/sposobyi-oplatyi">Способы оплаты</a></li>
+                <li><a route="/zastrojshhik" href="/zastrojshhik">Застройщик</a></li>
+                <li><a route="/dokumentacziya" href="/dokumentacziya">Документация</a></li>
+                <!-- <li><a href="#contacts" [+phx:if=`[*id]]`:is=`1`:then=`class="scrollto"`]]>Контакты</a></li> -->
+            </nav>
+            <div class="phone-wr">
+                <div class="phone-btn callback-open af_header-btn"><img src="temps/img/phone.png"></div>
+                <a href="tel:+78432072469" class="phone-link">+7 (843) 207-24-69</a>
+            </div>
+            <a href="tel:+78432072469" class="phone-mob mobile"><img src="temps/img/phone.png"></a>
+        </div>
+    </header>
+    <!-- /m_header -->
+    
+    <div class="content" id=''>
+
+        <button route="/sposobyi-oplatyi" style="margin: 100px;">payments</button>
+        <button route="/zastrojshhik" style="margin: 100px;">developer</button>
+
+        <a route="/sposobyi-oplatyi" href="/sposobyi-oplatyi">Payments</a>
+        <a route="/zastrojshhik" href="/zastrojshhik">Developer</a>
+
+        <div class="plzWork"></div>
+
+    </div>
+
+    <script async src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+</body>
+</html>

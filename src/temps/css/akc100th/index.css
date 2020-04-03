@@ -1,0 +1,176 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&subset=cyrillic');
+
+/* font-family: 'Oswald', sans-serif; */
+
+/* reset */
+* {
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, button, input, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	box-shadow: none;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+    max-width: 100%;
+}
+/* end reset */
+.mobile {
+    display: none;
+}
+.desktop {
+    display: block;
+}
+sup {
+	top: -.5em;
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+/********************/
+.page-block {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.page-block .bg-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.page-block .circle {
+    width: 95vw;
+    height: 95vw;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    left: -20vw;
+    padding: 10vw 17vw 0 26vw;
+}
+.page-block1 .circle {
+    bottom: -60vw;
+}
+.page-block2 .circle {
+    bottom: -60vw;
+}
+.page-block3 .circle {
+    bottom: -50vw;
+}
+.circle .logo {
+    margin-bottom: 2.6vw;
+    width: 20vw;
+}
+.circle .logo img {
+    width: 100%;
+}
+.title {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 2.2vw;
+    line-height: 1.24;
+    margin-bottom: 3vw;
+}
+.subtitle {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 1.25vw;
+    line-height: 1.24;
+    margin-bottom: 4vw;
+}
+.form-wrapper .toShow {
+    display: none;
+}
+.input-wr {
+    width: 18.75vw;
+    height: 4.14vw;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 6px 12px 0 rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    padding: 0.6vw 1.17vw;
+}
+.input-wr.separate {
+    border-radius: 0.3vw;
+    margin-right: 1.65vw;
+}
+.input-wr .label {
+    font-family: "Open Sans", sans-serif;
+    color: #540cfa;
+    font-size: 0.9375vw;
+    margin-bottom: 0.075vw;
+}
+form {
+    display: flex;
+}
+input {
+    color: #000;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.245vw;
+    outline: none;
+}
+.els-wr {
+    display: flex;
+    height: 4.14vw;
+    width: 30.225vw;
+    border-radius: 0.3vw;
+    overflow: hidden;
+}
+.els-wr button {
+    display: block;
+    background-color: #540cfa;
+    text-align: center;
+    width: 13.29vw;
+    line-height: 4.14vw;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.245vw;
+    color: #fff;
+    outline: none;
+}
+.els-wr button:hover {
+    cursor: pointer;
+}
+
+
+
