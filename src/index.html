@@ -37,6 +37,11 @@
 
     </head>
 <body id="main-page">
+    <div class="preloader">
+        <div class="preloader__wrap">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK48NSW"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -108,7 +113,7 @@
     <!-- -->
     <div class="overlay">
     
-        <div class="modal complex-modal" id="complex-modal"></div>
+        <!-- <div class="modal complex-modal" id="complex-modal"></div> -->
         
         <div class="modal form-modal">
             <div class="close"><img src="temps/img/catalog/close.png"></div>
@@ -155,42 +160,6 @@
         
     </div>
     <!-- -->
-
-    <!-- -->
-    <div class="menu-mob">
-        <div class="inside">
-            <div class="logo"><a href="#"><img src="temps/img/logo-mob.png"></a></div>
-            <nav>
-                <!--<li><a href="#complex" [[+phx:if=`[[*id]]`:is=`1`:then=`class="scrollto"`]]>О комплексе<div class="underline"></div></a></li>-->
-                <li><a href="#">Застройщик<div class="underline"></div></a></li>
-                <li><a href="#">Документация<div class="underline"></div></a></li>
-                <!-- <li><a href="#contacts" [[+phx:if=`[[*id]]`:is=`1`:then=`class="scrollto"`]]>Контакты<div class="underline"></div></a></li> -->
-            </nav>
-            <div class="socialnets">
-                <a href="https://vk.com/privilegiadom" target="_blank"><img src="temps/img/vk-mob.png"></a>
-                <a href="https://fb.me/privilegiadom.ru" target="_blank"><img src="temps/img/fb-mob.png"></a>
-                <a href="https://www.instagram.com/privilegiadom/" target="_blank"><img src="temps/img/inst-mob.png"></a>
-            </div>
-            <p>Почта: <a href="mailoto:press@norvegian.ru">press@privilegiadom.ru</a><br>
-               Телефон: <a href="tel:+78432072469">+7 (843) 207-24-69</a>
-            </p>
-            <p class="light">Место строительства</p>
-            <p>
-                <strong>Место строительства:</strong>
-                г.&nbsp;Казань, <br>
-                ул. Братьев Касимовых, 40В
-            </p>
-            <p>
-                пн-пт 9:00-20:00
-                <br>
-                сб-вс 10:00-17:00
-                <br>
-                *Уточнить график работы и более подробную информацию о работе отделов продаж можно по телефону +7 (843) 207-24-69.
-            </p>
-        </div>
-        <div class="close-mob"><img src="temps/img/close-mob.png"></div>
-    </div>
-    <!-- -->
     <header>
         <div class="container">
             <div class="burger mobile">
@@ -201,11 +170,9 @@
             <div class="logo desktop"><a route="/" href="/"><img src="temps/img/logo.png"></a></div>
             <div class="logo mobile"><a route="/" href="/"><img src="temps/img/logo-footer.png"></a></div>
             <nav>
-                <!-- <li><a href="#complex" [+phx:if=`[*id]]`:is=`1`:then=`class="scrollto"`]]>О комплексе</a></li> -->
                 <li><a route="/sposobyi-oplatyi" href="/sposobyi-oplatyi">Способы оплаты</a></li>
                 <li><a route="/zastrojshhik" href="/zastrojshhik">Застройщик</a></li>
                 <li><a route="/dokumentacziya" href="/dokumentacziya">Документация</a></li>
-                <!-- <li><a href="#contacts" [+phx:if=`[*id]]`:is=`1`:then=`class="scrollto"`]]>Контакты</a></li> -->
             </nav>
             <div class="phone-wr">
                 <div class="phone-btn callback-open af_header-btn"><img src="temps/img/phone.png"></div>

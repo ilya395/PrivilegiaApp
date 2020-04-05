@@ -3,9 +3,9 @@ const path  = require('path')
 import * as $ from 'jquery'
 import { Router } from './temps/router/router'
 // css
-import './temps/css/mobile.css'
-import './temps/css/index.css'
 import './temps/swiper/swiper.min.css'
+import './temps/css/index.css'
+// import './temps/css/mobile.css'
 // js
 // import 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css'
 // import 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'
@@ -21,8 +21,59 @@ import './temps/swiper/swiper.js'
 // import './temps/js/service/jquery.url.param.js'
 // import './temps/js/index.js'
 // sass
+import './temps/sass/index.scss'
 import './temps/sass/index.sass'
 
+
+///////////////////////////////////////////////////////////////
+
+// preloader
+function preloaderPromise(elem) {
+    return new Promise(function(resolve, reject){
+        console.log(elem)
+        function handler() {
+            resolve(elem)
+            //
+            elem.removeEventListener('transitionend', handler)
+        }
+        elem.addEventListener('transitionend', handler)    
+        elem.classList.add('transparent')
+    })
+}
+
+function closePreloder() {
+    console.log('preloader start')
+    let preloader = document.querySelector('.preloader')
+    let promise = preloaderPromise(preloader)
+    promise.then((obj) => {
+        console.log(obj)
+        obj.classList.add('none')
+
+    })
+}
+window.addEventListener('load', closePreloder)
+
+///////////////////////////////////////////////////////////////
+
+$('.burger').click(function() {
+    $('.menu-mob').animate({
+        width: '100%'
+    }, 400);
+});
+
+///////////////////////////////////////////////////////////////
+
+if (window.matchMedia('(max-width: 501px)').matches) {
+    const parent = document.querySelector('.content')
+    import('./temps/views/otherModules/menuMob')
+        .then((obj) => {
+            parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
+            return obj
+        })
+        .then((obj) => {
+            obj.tpl.func() // включим внурениий функционал модуля
+        }) 
+}
 
 ///////////////////////////////////////////////////////////////
 
@@ -207,7 +258,13 @@ let bigModuleBoss = function (array) {
             for (let i of innerBlocks) {
                 innerBlocksHeight += i.getBoundingClientRect().height;
             }
-            if (pageYOffset > innerBlocksHeight * 0.35) {
+            let k = 0.35
+            if (innerBlocks.length > 2) {
+                k = 0.5
+            } else {
+                k = 0.35
+            }
+            if (pageYOffset > innerBlocksHeight * k) {
                 let row = []
                 for (let j of array) {
                     if (j.visible == false) {
@@ -240,7 +297,7 @@ let bigModuleBoss = function (array) {
             activeRoutes.forEach(function(route){
                 route.addEventListener('click', weAreLeaving, false);
             });
-            console.log(pageYOffset, innerBlocksHeight)
+            // console.log(pageYOffset, innerBlocksHeight)
         }
         window.addEventListener('scroll', scrollHandler)
     } else {
