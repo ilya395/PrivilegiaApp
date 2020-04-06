@@ -262,7 +262,7 @@ let bigModuleBoss = function (array) {
             if (innerBlocks.length > 2) {
                 k = 0.5
             } else {
-                k = 0.35
+                k = 0.15
             }
             if (pageYOffset > innerBlocksHeight * k) {
                 let row = []

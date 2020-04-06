@@ -182,6 +182,8 @@ function handler(){
     let localDataAbout = []
     let localDataAkcii = []
     let localDataEvents = []
+
+    let localData = []
     //
     function render() {
         let cc_about = document.getElementById('cc_about')
@@ -195,7 +197,7 @@ function handler(){
 
         let url = 'https://jsonplaceholder.typicode.com/posts/'
 
-        let localData = []
+        // let localData = []
 
         switch (flag) {
             case 'akcii':
@@ -351,13 +353,25 @@ function handler(){
         let str = ``
         for (let j = 0; j < lengthOfObject; j++) {
             if (j + 1 == 1 || (j + 1) % 5 == 1 ) {
-                str += block_1(array[j])
+                if (j == lengthOfObject - 1) {
+                    str += block_1_last(array[j])
+                } else {
+                    str += block_1(array[j])
+                }
             } else if (j + 1 == 2 || (j + 1) % 5 == 2) {
-                str += block_2(array[j])
+                if (j == lengthOfObject - 1) {
+                    str += block_2_last(array[j])
+                } else {
+                    str += block_2(array[j])
+                }
             } else if (j + 1 == 3 || (j + 1) % 5 == 3) {
                 str += block_3(array[j])
             } else if (j + 1 == 4 || (j + 1) % 5 == 4) {
-                str += block_4(array[j])
+                if (j == lengthOfObject - 1) {
+                    str += block_4_last(array[j])
+                } else {
+                    str += block_4(array[j])
+                }
             } else if (j + 1 == 5 || (j + 1) % 5 == 0) {
                 str += block_5(array[j])
             } else {
@@ -375,6 +389,9 @@ function handler(){
         let wrap = document.querySelector('.cc_item.active')
         let items = wrap.querySelectorAll('.complex-item')
         function modalHendler() {
+            let clickedElem = this
+            console.log(this)
+            console.log(localData)
             // вызвать модалку
             if (!document.querySelector('.modal.complex-modal')) {
                 const parent = document.querySelector('.overlay')
@@ -385,7 +402,10 @@ function handler(){
                     })
                     .then((obj) => {
                         obj.tpl.func() // включим внурениий функционал модуля
-                    }) 
+                    })
+                    .then(() => {
+                        insertData(clickedElem)
+                    })
             } else {
                 $('.cm-open').click(function() {
                     var data = $(this).data();
@@ -401,10 +421,22 @@ function handler(){
                     
                     $('.overlay .complex-modal').css('display', 'block');
                     $('.overlay').fadeIn();
+
+                    insertData(clickedElem);
                     
                 });                
             }
             // воткнуть данные
+            function insertData(el) {
+                let number = el.getAttribute('id')
+                let modal = document.getElementById('complex-modal')
+                let title = modal.querySelector('.bottom-text h2')
+                let result = localData.find((item) => {
+                    item.id == number
+                    return item
+                })
+                title.innerText = result.title
+            }
         }
         items.forEach((item) => {
             item.addEventListener('click', modalHendler)
