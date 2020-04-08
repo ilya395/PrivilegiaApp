@@ -71,10 +71,11 @@ $(document).ready(function() {
         }
     });
     
-    $('.ipoteka-open').click(function() {
-        $('.overlay .ipoteka-modal').css('display', 'block');
-        $('.overlay').fadeIn();
-    });
+    // в ipotekModal
+    // $('.ipoteka-open').click(function() {
+    //     $('.overlay .ipoteka-modal').css('display', 'block');
+    //     $('.overlay').fadeIn();
+    // });
     
     $('.overlay .close').click(function() {
         $('.overlay').fadeOut();
@@ -86,12 +87,13 @@ $(document).ready(function() {
         $('.overlay .modal').fadeOut();
     });
     
-    $('.overlay').click(function(e) {
-        if($(e.target).hasClass('overlay')) {
-            $('.overlay').fadeOut();
-            $('.overlay .modal').fadeOut();
-        }
-    });
+    // в app +
+    // $('.overlay').click(function(e) {
+    //     if($(e.target).hasClass('overlay')) {
+    //         $('.overlay').fadeOut();
+    //         $('.overlay .modal').fadeOut();
+    //     }
+    // });
     
     $('.cm-open').click(function() {
         var data = $(this).data();

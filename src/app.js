@@ -1,7 +1,7 @@
 const path  = require('path')
 //
 import * as $ from 'jquery'
-import { Router } from './temps/router/router'
+import { Router, globalPermissions } from './temps/router/router'
 // css
 import './temps/swiper/swiper.min.css'
 import './temps/css/index.css'
@@ -10,7 +10,7 @@ import './temps/css/index.css'
 // import 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css'
 // import 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'
 // import 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js'
-// import './temps/js/service/jquery.inputmask.bundle.min.js'
+import './temps/js/service/jquery.inputmask.bundle.min.js'
 // import './temps/js/service/phone-ru.min.js'
 
 import './temps/swiper/swiper.js'
@@ -61,6 +61,13 @@ $('.burger').click(function() {
     }, 400);
 });
 
+$('.overlay').click(function(e) {
+    if($(e.target).hasClass('overlay')) {
+        $('.overlay').fadeOut();
+        $('.overlay .modal').fadeOut();
+    }
+});
+
 ///////////////////////////////////////////////////////////////
 
 if (window.matchMedia('(max-width: 501px)').matches) {
@@ -79,6 +86,7 @@ if (window.matchMedia('(max-width: 501px)').matches) {
 
 //
 // const container = document.getElementById('app')
+
 const container = document.querySelector('.content')
 
 let myRoute = new Router('myRouter', [
@@ -214,7 +222,9 @@ let bigModuleBoss = function (array) {
     //
     function makeImport(object) {
         object.visible = true
-        // iter++;
+        let socket = document.createElement('section')
+        socket.classList.add('socket')
+        parent.append(socket)
 
         let pathUrl = String(object.url)
         console.log('----------------')
@@ -223,7 +233,7 @@ let bigModuleBoss = function (array) {
             .then(obj => {
                 console.log(obj)
                 // console.log(obj.tpl.content())
-                parent.insertAdjacentHTML('beforeend', obj.tpl.content())
+                socket.insertAdjacentHTML('beforeend', obj.tpl.content())
                 return obj
             })
             .then((obj) => {
@@ -264,7 +274,9 @@ let bigModuleBoss = function (array) {
             } else {
                 k = 0.15
             }
+            console.log(k)
             if (pageYOffset > innerBlocksHeight * k) {
+                console.log(k)
                 let row = []
                 for (let j of array) {
                     if (j.visible == false) {
@@ -279,7 +291,7 @@ let bigModuleBoss = function (array) {
             if (innerBlocks.length == array.length && !document.querySelector('footer')) {
                 import('./temps/views/otherModules/footer')
                 .then((obj) => {
-                    parent.insertAdjacentHTML('afterend', obj.tpl.content())
+                    socket.insertAdjacentHTML('afterend', obj.tpl.content())
                     return obj
                 })
                 .then((obj) => {

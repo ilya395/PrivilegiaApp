@@ -150,7 +150,7 @@ module.exports = {
     },
     output: { // куда складывать результаты работы
         filename: filename('js'), // '[name].[hash].js', // итоговый файл, после сборкивсех js afqkjd
-        path: path.resolve(__dirname, 'dist'), // отталкиваясь от текущей директории, складывать все в dist
+        path: path.resolve(__dirname, 'dist/'), // отталкиваясь от текущей директории, складывать все в dist
         publicPath: '/' // относительная ссылка, которая будет подставляться из браузера
     },
     resolve: {

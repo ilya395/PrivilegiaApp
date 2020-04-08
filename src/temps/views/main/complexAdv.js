@@ -389,6 +389,7 @@ function handler(){
         let wrap = document.querySelector('.cc_item.active')
         let items = wrap.querySelectorAll('.complex-item')
         function modalHendler() {
+            console.log('тоткрыть модалку!')
             let clickedElem = this
             console.log(this)
             console.log(localData)
@@ -406,25 +407,11 @@ function handler(){
                     .then(() => {
                         insertData(clickedElem)
                     })
-            } else {
-                $('.cm-open').click(function() {
-                    var data = $(this).data();
-            
-                    //
-            
-                    $('.overlay .close').click(function() {
-                        $('.overlay').fadeOut();
-                        $('.overlay .modal').fadeOut();
-                    });
-            
-                    //
-                    
-                    $('.overlay .complex-modal').css('display', 'block');
-                    $('.overlay').fadeIn();
+            } else {   
+                $('.overlay .complex-modal').css('display', 'block');
+                $('.overlay').fadeIn();
 
-                    insertData(clickedElem);
-                    
-                });                
+                insertData(clickedElem);           
             }
             // воткнуть данные
             function insertData(el) {

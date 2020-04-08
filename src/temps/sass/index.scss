@@ -59,4 +59,21 @@
       transform: rotate(360deg);
     }
   }
-  
+
+/*****************************/
+
+.thnk-block {
+  display: none;
+  width: 100%;
+  background-color: #eaeaea;
+  padding: 55px 0 70px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+.thnk-block.vkl {
+  display: block;
+}
+.thnk-block.transparent {
+  opacity: 0;  
+}

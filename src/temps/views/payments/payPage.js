@@ -193,7 +193,7 @@ function advantagesTemplate() {
                                                     <a href="http://www.itb.ru/personal/loans/mortgage/" target="_blank">Сайт банка</a>
                                                 </div>
                                             </div>
-                                            <div clss="ipcons-item">
+                                            <div class="ipcons-item">
                                                 <div class="title">
                                                     Хотите легко получить одобрение по&nbsp;ипотеке?
                                                 </div>
@@ -484,4 +484,59 @@ function handler(){
     new SuperSliderPay({
         wrapper: $('.pay-sl-top-wr')
     });
+
+    //
+
+    callToModal();
+
+    function callToModal() {
+        let allBtn = document.querySelectorAll('.ipoteka-open')
+        function paysHandler() {
+            console.log(this)
+
+            if (!document.querySelector('.overlay .modal.ipoteka-modal')) {
+                const parent = document.querySelector('.overlay')
+                import('../otherModules/ipotekaModal')
+                    .then((obj) => {
+                        parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
+                        return obj
+                    })
+                    .then((obj) => {
+                        obj.tpl.func() // включим внурениий функционал модуля
+                    })
+                    .then(() => {
+                        insertTitle()
+                    })                
+            }
+        } 
+        allBtn.forEach((i) => {
+            i.addEventListener('click', paysHandler)
+        })
+    }
+
+    function insertTitle() {
+        let flag = 'Хочет получить одобрение по ипотеке'
+        let index = document.querySelectorAll('.pay-sl-top.list-sl li').forEach((item, index) => {
+            if (item.classList.contains('active')) {
+                return index
+            }
+        })
+        switch (index) {
+            case 1:
+                flag = 'Вызвана форма со старницы "«Привилегия» для семьи"'
+                //
+                break;
+            case 2:
+                flag = 'Вызвана форма со старницы "Гибкая система рассрочки и отсрочка от застройщика'
+                //
+                break;
+            case 3:
+                flag = 'Оплата материнским капиталом'
+                //
+                break;
+            default:
+                flag = 'Вызвана форма со старницы "Ипотека от 8,7%"'
+        }
+        document.querySelector('.modal.ipoteka-modal input[type="hidden"]').value = flag
+    }
 }

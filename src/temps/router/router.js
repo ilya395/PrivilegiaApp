@@ -5,3 +5,5 @@ export let Router = function(name, routes){
         routes: routes
     }
 }
+
+export let globalPermissions = []

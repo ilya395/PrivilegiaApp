@@ -60,7 +60,11 @@ function handler(){
     const wrap = document.querySelector('.banner')
     wrap.classList.add('visible')
     //
-    window.addEventListener('load', function(){
+    // window.addEventListener('load', function(){
+    //     sliderInTop()
+    // })
+    sliderInTop()
+    function sliderInTop() {
         if($('#specBlock .swiper-slide').length <= 1 ) {
             $('#specBlock .arrows').css('display', 'none');
         } else {
@@ -79,5 +83,5 @@ function handler(){
                 }
             });
         }
-    })
+    }
 }
