@@ -67,12 +67,14 @@ function handler(){
                 response => {
                     console.log('Сообщение отправлено методом fetch')
                     console.log(response)
-                    phone.value = ''
-                    name.value = ''
-                    // inputBlockSeccess()
+                    inputBlockSeccess()
+                    
                     // goalSender(document.querySelector('.give-me-lead-plz'))
                 }
             )
+            .then(() => {
+                phone.value = ''
+            })
             .catch(
                 error => {
                     console.error(error)
@@ -172,5 +174,24 @@ function handler(){
                 return false
             }
         })
+    }
+    function inputBlockSeccess() {
+        console.log('start')
+        let thnkElem = document.querySelector('.modal.ipoteka-modal .thnk-block')
+
+        thnkElem.classList.add('vkl')
+        thnkElem.classList.remove('transparent')
+        thnkElem.classList.add('movie')
+
+        setTimeout(() => {
+            function handler() {
+                thnkElem.classList.remove('vkl')
+                //
+                thnkElem.removeEventListener('transitionend', handler)
+            }
+            thnkElem.addEventListener('transitionend', handler)
+            thnkElem.classList.remove('movie')
+            thnkElem.classList.add('transparent') 
+        }, 3000)
     }
 }

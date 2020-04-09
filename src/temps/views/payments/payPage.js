@@ -380,103 +380,103 @@ function handler(){
             }
             
             rightBan.click(
-                // $.debounce(400, 
-                function() {
-                    indBan = ulBanner.find('.active').index();
-                    if(indBan == (countBan-1)) {
-                        ulBanner.animate({
-                            marginLeft: 0
-                        }, 700);
-                        $('#pay-slider-wrapper .pay-content-sl').animate({
-                            marginLeft: 0
-                        }, 700);
-                        ulBanner.find('li').siblings().removeClass('active');
-                        ulBanner.find('li').eq(0).addClass('active');
-                        controlsBan.find('li').siblings().removeClass('active');
-                        controlsBan.find('li').eq(0).addClass('active');
-                    } else {
-                        marginBan = parseInt(ulBanner.css('margin-left'));
-                        ulBanner.animate({
-                            marginLeft: marginBan-liWidthBan
-                        }, 700);
-                        $('#pay-slider-wrapper .pay-content-sl').animate({
-                            marginLeft: marginBan-liWidthBan
-                        }, 700);
-                        ulBanner.find('li').siblings().removeClass('active');
-                        ulBanner.find('li').eq(indBan+1).addClass('active');
-                        controlsBan.find('li').siblings().removeClass('active');
-                        controlsBan.find('li').eq(indBan+1).addClass('active');
+                $.debounce(400, 
+                    function() {
+                        indBan = ulBanner.find('.active').index();
+                        if(indBan == (countBan-1)) {
+                            ulBanner.animate({
+                                marginLeft: 0
+                            }, 700);
+                            $('#pay-slider-wrapper .pay-content-sl').animate({
+                                marginLeft: 0
+                            }, 700);
+                            ulBanner.find('li').siblings().removeClass('active');
+                            ulBanner.find('li').eq(0).addClass('active');
+                            controlsBan.find('li').siblings().removeClass('active');
+                            controlsBan.find('li').eq(0).addClass('active');
+                        } else {
+                            marginBan = parseInt(ulBanner.css('margin-left'));
+                            ulBanner.animate({
+                                marginLeft: marginBan-liWidthBan
+                            }, 700);
+                            $('#pay-slider-wrapper .pay-content-sl').animate({
+                                marginLeft: marginBan-liWidthBan
+                            }, 700);
+                            ulBanner.find('li').siblings().removeClass('active');
+                            ulBanner.find('li').eq(indBan+1).addClass('active');
+                            controlsBan.find('li').siblings().removeClass('active');
+                            controlsBan.find('li').eq(indBan+1).addClass('active');
+                        }
                     }
-                }
-                // )
+                )
             );
             
             leftBan.click(
-                // $.debounce(400, 
-                function() {
-                    indBan = ulBanner.find('.active').index();
-                    if(indBan === 0) {
-                        ulBanner.animate({
-                            marginLeft: -liWidthBan*(countBan-1)
-                        }, 700);
-                        $('#pay-slider-wrapper .pay-content-sl').animate({
-                            marginLeft: -liWidthBan*(countBan-1)
-                        }, 700);
-                        ulBanner.find('li').siblings().removeClass('active');
-                        ulBanner.find('li').eq(countBan-1).addClass('active');
-                        controlsBan.find('li').siblings().removeClass('active');
-                        controlsBan.find('li').eq(countBan-1).addClass('active');
-                    } else {
-                        marginBan = parseInt(ulBanner.css('margin-left'));
-                        ulBanner.animate({
-                            marginLeft: marginBan+liWidthBan
-                        }, 700);
-                        $('#pay-slider-wrapper .pay-content-sl').animate({
-                            marginLeft: marginBan+liWidthBan
-                        }, 700);
-                        ulBanner.find('li').siblings().removeClass('active');
-                        ulBanner.find('li').eq(indBan-1).addClass('active');
-                        controlsBan.find('li').siblings().removeClass('active');
-                        controlsBan.find('li').eq(indBan-1).addClass('active');
+                $.debounce(400, 
+                    function() {
+                        indBan = ulBanner.find('.active').index();
+                        if(indBan === 0) {
+                            ulBanner.animate({
+                                marginLeft: -liWidthBan*(countBan-1)
+                            }, 700);
+                            $('#pay-slider-wrapper .pay-content-sl').animate({
+                                marginLeft: -liWidthBan*(countBan-1)
+                            }, 700);
+                            ulBanner.find('li').siblings().removeClass('active');
+                            ulBanner.find('li').eq(countBan-1).addClass('active');
+                            controlsBan.find('li').siblings().removeClass('active');
+                            controlsBan.find('li').eq(countBan-1).addClass('active');
+                        } else {
+                            marginBan = parseInt(ulBanner.css('margin-left'));
+                            ulBanner.animate({
+                                marginLeft: marginBan+liWidthBan
+                            }, 700);
+                            $('#pay-slider-wrapper .pay-content-sl').animate({
+                                marginLeft: marginBan+liWidthBan
+                            }, 700);
+                            ulBanner.find('li').siblings().removeClass('active');
+                            ulBanner.find('li').eq(indBan-1).addClass('active');
+                            controlsBan.find('li').siblings().removeClass('active');
+                            controlsBan.find('li').eq(indBan-1).addClass('active');
+                        }
                     }
-                }
-                // )
+                )
             );
             
             controlsBan.find('li').click(
-                // $.debounce(200, 
-                function() {
-                    indBan = $(this).index();
-                    ulBanner.animate({
-                        marginLeft: -indBan*liWidthBan
-                    }, 700);
-                    $('#pay-slider-wrapper .pay-content-sl').animate({
-                        marginLeft: -indBan*liWidthBan
-                    }, 700);
-                    ulBanner.find('li').siblings().removeClass('active');
-                    ulBanner.find('li').eq(indBan).addClass('active');
-                    controlsBan.find('li').siblings().removeClass('active');
-                    controlsBan.find('li').eq(indBan).addClass('active');
-                }
-                // )
+                $.debounce(200, 
+                    function() {
+                        indBan = $(this).index();
+                        ulBanner.animate({
+                            marginLeft: -indBan*liWidthBan
+                        }, 700);
+                        $('#pay-slider-wrapper .pay-content-sl').animate({
+                            marginLeft: -indBan*liWidthBan
+                        }, 700);
+                        ulBanner.find('li').siblings().removeClass('active');
+                        ulBanner.find('li').eq(indBan).addClass('active');
+                        controlsBan.find('li').siblings().removeClass('active');
+                        controlsBan.find('li').eq(indBan).addClass('active');
+                    }
+                )
             );
             
             $('#pay-slider-wrapper .controls-links').find('li').click(
-                // $.debounce(200, 
-                function() {
-                    indBan = $(this).index();
-                    ulBanner.animate({
-                        marginLeft: -indBan*liWidthBan
-                    }, 700);
-                    $('#pay-slider-wrapper .pay-content-sl').animate({
-                        marginLeft: -indBan*liWidthBan
-                    }, 700);
-                    ulBanner.find('li').siblings().removeClass('active');
-                    ulBanner.find('li').eq(indBan).addClass('active');
-                    controlsBan.find('li').siblings().removeClass('active');
-                    controlsBan.find('li').eq(indBan).addClass('active');
-                }
-                // )
+                $.debounce(200, 
+                    function() {
+                        indBan = $(this).index();
+                        ulBanner.animate({
+                            marginLeft: -indBan*liWidthBan
+                        }, 700);
+                        $('#pay-slider-wrapper .pay-content-sl').animate({
+                            marginLeft: -indBan*liWidthBan
+                        }, 700);
+                        ulBanner.find('li').siblings().removeClass('active');
+                        ulBanner.find('li').eq(indBan).addClass('active');
+                        controlsBan.find('li').siblings().removeClass('active');
+                        controlsBan.find('li').eq(indBan).addClass('active');
+                    }
+                )
             ); 
         });  
     };
@@ -500,13 +500,11 @@ function handler(){
                     .then((obj) => {
                         parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
                         return obj
-                    })
+                    }) 
                     .then((obj) => {
-                        obj.tpl.func() // включим внурениий функционал модуля
-                    })
-                    .then(() => {
                         insertTitle()
-                    })                
+                        obj.tpl.func() // включим внурениий функционал модуля
+                    })             
             }
         } 
         allBtn.forEach((i) => {
@@ -516,14 +514,16 @@ function handler(){
 
     function insertTitle() {
         let flag = 'Хочет получить одобрение по ипотеке'
-        let index = document.querySelectorAll('.pay-sl-top.list-sl li').forEach((item, index) => {
-            if (item.classList.contains('active')) {
-                return index
+        let list = document.querySelectorAll('.pay-sl-top-wr .controls li')
+        let index = 0
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].classList.contains('active')) {
+                index = i
             }
-        })
+        }
         switch (index) {
             case 1:
-                flag = 'Вызвана форма со старницы "«Привилегия» для семьи"'
+                flag = 'Вызвана форма со старницы "\«Привилегия\» для семьи"'
                 //
                 break;
             case 2:

@@ -68,4 +68,8 @@ function handler(){
             width: '0%'
         }, 400);
     });
+
+    $('.menu-mob').animate({
+        width: '100%'
+    }, 400);
 }

@@ -91,6 +91,10 @@ const plugins = () => {
             $: 'jquery',
             'window.Swiper': 'swiper',
             Swiper: 'swiper'
+            // '$.debounce': 'throttle_debounce',
+            // '$.throttle': 'throttle_debounce',
+            // 'jQuery.throttle': 'throttle_debounce',
+            // 'jQuery.debounce': 'throttle_debounce'
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
@@ -139,6 +143,11 @@ const plugins = () => {
                     entry: 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.js',
                     global: 'Swiper',
                 },
+                {
+                    module: 'throttle_debounce',
+                    entry: 'https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js',
+                    global: 'jquery_throttle_debounce',                    
+                }
             ]
         })
     ]

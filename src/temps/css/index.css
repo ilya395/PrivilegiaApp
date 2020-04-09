@@ -798,6 +798,9 @@ footer .socialnets .item:first-child {
     margin: 0 auto;
     color: #32323c;
 }
+.form-modal.vkl, .ipoteka-modal.vkl {
+    display: block;   
+}
 .form-modal .close, .ipoteka-modal .close {
     position: absolute;
     top: -30px;
@@ -4299,17 +4302,17 @@ section.view {
     .complex-modal .logo-modal img {
         width: 100%;
     }
-    .form-modal {
+    .form-modal, .ipoteka-modal {
         top: 30px;
         width: 90vw;
     }
-    .form-modal .close {
+    .form-modal .close, .ipoteka-modal .close {
         top: -17px;
         right: -17px;
         width: 36px;
         height: 36px;
     }
-    .form-modal .close img {
+    .form-modal .close img, .ipoteka-modal .close img {
         width: 56%;
     }
     .thnk-modal {

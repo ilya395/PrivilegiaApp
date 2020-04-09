@@ -64,12 +64,20 @@
 
 .thnk-block {
   display: none;
-  width: 100%;
-  background-color: #eaeaea;
-  padding: 55px 0 70px;
+  position: absolute;
+  top: calc(50% - 55px);
+  width: 80%;
+  color: #fff;
+  background-color: #78c249;
+  padding: 25px 0 25px;
   text-align: center;
   opacity: 1;
-  transition: opacity .3s linear;
+  transition: opacity .3s linear, transform .3s linear;
+  margin: 0 10%;
+  transform: translateY(200px);
+}
+.thnk-block.movie {
+  transform: translateY(0px);
 }
 .thnk-block.vkl {
   display: block;

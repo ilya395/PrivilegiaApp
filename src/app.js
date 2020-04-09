@@ -56,9 +56,23 @@ window.addEventListener('load', closePreloder)
 ///////////////////////////////////////////////////////////////
 
 $('.burger').click(function() {
-    $('.menu-mob').animate({
-        width: '100%'
-    }, 400);
+    console.log('ckick')
+    if ($('.menu-mob').length > 0) {
+        $('.menu-mob').animate({
+            width: '100%'
+        }, 400);
+    } else {
+        const parent = document.querySelector('.content')
+        import('./temps/views/otherModules/menuMob')
+            .then((obj) => {
+                parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
+                return obj
+            })
+            .then((obj) => {
+                obj.tpl.func() // включим внурениий функционал модуля
+            }) 
+    }
+
 });
 
 $('.overlay').click(function(e) {
@@ -67,20 +81,6 @@ $('.overlay').click(function(e) {
         $('.overlay .modal').fadeOut();
     }
 });
-
-///////////////////////////////////////////////////////////////
-
-if (window.matchMedia('(max-width: 501px)').matches) {
-    const parent = document.querySelector('.content')
-    import('./temps/views/otherModules/menuMob')
-        .then((obj) => {
-            parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
-            return obj
-        })
-        .then((obj) => {
-            obj.tpl.func() // включим внурениий функционал модуля
-        }) 
-}
 
 ///////////////////////////////////////////////////////////////
 
