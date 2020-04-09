@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[260],{642:function(p,i,s){"use strict";s.r(i),i.default=s.p+"temps/pics/Privilegy.pdf"}}]);

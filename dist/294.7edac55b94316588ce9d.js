@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[294],{517:function(t,n,e){"use strict";e.r(n),n.default=e.p+"temps/fonts/Montserrat_Alternates/MontserratAlternates-ThinItalic.ttf"}}]);

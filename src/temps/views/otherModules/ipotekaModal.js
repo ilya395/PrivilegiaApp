@@ -1,3 +1,5 @@
+const path  = require('path')
+
 export const tpl = {
     content: advantagesTemplate,
     func: handler
@@ -39,15 +41,20 @@ function handler(){
 
     function send() {
         event.preventDefault()
+        console.log('start send')
         let title = document.querySelector('.modal.ipoteka-modal form input[name="title"]')
         let phone = document.querySelector('.modal.ipoteka-modal form input[name="phone"]')
         let whatWithPhone = imOkey(phone.value);
 
+        console.log(phone.value, title.value)
+
         let data = `action=action_fetch&phone=${phone.value}&title=${title.value}`
 
         let sendAjax = function (formData) {
+            let newPath = path.resolve(__dirname, './listener.php')
+            console.log(newPath)
             fetch(
-                '../../../listener.php', // точка входа
+                newPath, // '../../../../listener.php', // точка входа
                 {
                     method: 'POST',
                     headers: {
@@ -72,10 +79,11 @@ function handler(){
                 }
             )
         }
-        if ( (phone.value != null && phone.value != undefined && phone.value != '' && whatWithPhone == true) && (titleIsOkey(title.value) == true) ) {
-            sendAjax(data)
-            console.log(data)
-        }
+        // if ( (phone.value != null && phone.value != undefined && phone.value != '' && whatWithPhone == true) && (titleIsOkey(title.value) == true) ) {
+        //     sendAjax(data)
+        //     console.log(data)
+        // }
+        sendAjax(data)
     }
     const sendBtn = document.querySelector('.modal.ipoteka-modal form button')
     sendBtn.addEventListener('click', send)

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[251],{647:function(p,s,n){"use strict";n.r(s),s.default=n.p+"temps/pics/ipoteka/absolyut-bank.jpg"}}]);

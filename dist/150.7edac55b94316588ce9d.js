@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[150],{268:function(p,n,s){"use strict";s.r(n),n.default=s.p+"temps/pics/2020/2/6/Внутр.png"}}]);

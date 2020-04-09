@@ -1,5 +1,3 @@
-// import { ymaps } from 'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
-
 export const tpl = {
     content: footerTemplate,
     func: handler

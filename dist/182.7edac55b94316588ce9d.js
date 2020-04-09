@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[182],{575:function(o,p,n){"use strict";n.r(p),p.default=n.p+"temps/img/ipoteka/logo-sovkombank.jpg"}}]);

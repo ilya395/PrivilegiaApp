@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[257],{483:function(i,p,t){"use strict";t.r(p),p.default=t.p+"temps/docs/Pravila_akcii_Sertifikat_ot_pertnerov.pdf"}}]);

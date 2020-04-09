@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[168],{561:function(p,n,w){"use strict";w.r(n),n.default=w.p+"temps/img/akc100th/bg-new.jpg"}}]);

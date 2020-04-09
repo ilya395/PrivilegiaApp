@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[170],{563:function(o,p,s){"use strict";s.r(p),p.default=s.p+"temps/img/akc100th/logo-light.svg"}}]);

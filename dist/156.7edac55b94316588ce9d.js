@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[156],{274:function(p,t,e){"use strict";e.r(t),t.default=e.p+"temps/pics/ipoteka/otkrytie.png"}}]);

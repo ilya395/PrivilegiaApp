@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[254],{650:function(p,s,e){"use strict";e.r(s),s.default=e.p+"temps/pics/ipoteka/sberbank.jpg"}}]);

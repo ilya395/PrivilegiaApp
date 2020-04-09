@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[179],{572:function(p,n,o){"use strict";o.r(n),n.default=o.p+"temps/img/ipoteka/dom_bank_black.jpg"}}]);

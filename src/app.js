@@ -212,6 +212,7 @@ const viewsList = [
 
 let bigModuleBoss = function (array) {
     // const parent = document.getElementById('app')
+    let counter = 0
     const parent = document.querySelector('.content')
     console.log(array)
     // let iter = 0
@@ -221,6 +222,8 @@ let bigModuleBoss = function (array) {
     });
     //
     function makeImport(object) {
+        counter++
+
         object.visible = true
         let socket = document.createElement('section')
         socket.classList.add('socket')
@@ -242,23 +245,6 @@ let bigModuleBoss = function (array) {
         
     }
     if (array.length > 1) {
-        // let i = 0
-        // for (let t = 2; t < array.length; t++) {
-        //     setTimeout(() => {
-        //         console.log('iteration')
-        //         makeImport(array[t]);
-        //         if (t == array.length - 1 && (!document.querySelector('footer'))) {
-        //             import('./temps/views/otherModules/footer')
-        //                 .then((obj) => {
-        //                     parent.insertAdjacentHTML('afterend', obj.tpl.content())
-        //                     return obj
-        //                 })
-        //                 .then((obj) => {
-        //                     obj.tpl.func() // включим внурениий функционал модуля
-        //                 })
-        //         }
-        //     }, t*8000)
-        // }
         //
         // начать слушать скролы
         //
@@ -274,9 +260,9 @@ let bigModuleBoss = function (array) {
             } else {
                 k = 0.15
             }
-            console.log(k)
-            if (pageYOffset > innerBlocksHeight * k) {
-                console.log(k)
+            console.log(k, counter, innerBlocks.length)
+            if (pageYOffset > innerBlocksHeight * k && counter == innerBlocks.length) {
+                console.log(k, pageYOffset, innerBlocksHeight * k, counter, innerBlocks.length)
                 let row = []
                 for (let j of array) {
                     if (j.visible == false) {
@@ -291,7 +277,7 @@ let bigModuleBoss = function (array) {
             if (innerBlocks.length == array.length && !document.querySelector('footer')) {
                 import('./temps/views/otherModules/footer')
                 .then((obj) => {
-                    socket.insertAdjacentHTML('afterend', obj.tpl.content())
+                    parent.insertAdjacentHTML('afterend', obj.tpl.content())
                     return obj
                 })
                 .then((obj) => {
@@ -379,4 +365,12 @@ function backToNull(array) {
             obj.visible = obj.active
         })
     })
+}
+
+function raf(fn){
+    window.requestAnimationFrame(function(){
+        window.requestAnimationFrame(function(){
+            fn();
+        });
+    });
 }

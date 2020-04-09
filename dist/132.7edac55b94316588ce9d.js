@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[132],{249:function(p,i,a){"use strict";a.r(i),i.default=a.p+"temps/img/salex/privilegia-udacha.png"}}]);

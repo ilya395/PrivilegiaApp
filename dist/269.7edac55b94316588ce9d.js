@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[269],{492:function(t,n,s){"use strict";s.r(n),n.default=s.p+"temps/fonts/IBMPlexSans/IBMPlexSans-LightItalic.ttf"}}]);

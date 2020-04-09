@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[153],{271:function(p,n,o){"use strict";o.r(n),n.default=o.p+"temps/pics/ipoteka/PSB_logo_original_png.png"}}]);

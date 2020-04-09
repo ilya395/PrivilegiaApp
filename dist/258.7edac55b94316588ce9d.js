@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[258],{484:function(p,s,n){"use strict";n.r(s),s.default=n.p+"temps/docs/Правила_Акции_вам_улыбнется_удача.pdf"}}]);

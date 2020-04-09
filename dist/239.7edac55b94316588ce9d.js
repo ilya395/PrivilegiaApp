@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[239],{632:function(p,i,s){"use strict";s.r(i),i.default=s.p+"temps/pics/2019/10/24/priviyarmar.jpg"}}]);

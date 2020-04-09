@@ -95,28 +95,34 @@ const plugins = () => {
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             {
-                from: path.resolve(__dirname, './src/temps/img/**/*'),
+                from: path.resolve(__dirname, './src/temps/*'),
                 to: path.resolve(__dirname, './dist/')
             }
         ]),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './src/temps/pics/**/*'),
-                to: path.resolve(__dirname, './dist/')
-            }
-        ]),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './src/temps/fonts/**/*'),
-                to: path.resolve(__dirname, './dist/')
-            }
-        ]),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './src/temps/docs/*'),
-                to: path.resolve(__dirname, './dist/')
-            }
-        ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, './src/temps/img/**/*'),
+        //         to: path.resolve(__dirname, './dist/')
+        //     }
+        // ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, './src/temps/pics/**/*'),
+        //         to: path.resolve(__dirname, './dist/')
+        //     }
+        // ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, './src/temps/fonts/**/*'),
+        //         to: path.resolve(__dirname, './dist/')
+        //     }
+        // ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, './src/temps/docs/*'),
+        //         to: path.resolve(__dirname, './dist/')
+        //     }
+        // ]),
         new MiniCssExtractPlugin({
             filename: filename('css')
         }),
@@ -190,7 +196,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
+                            name: '[path][name].[ext]',
                             // publicPath: 'src/assets/images/', // ? src/assets/images/
                             // outputPath: '/images/',
                             // useRelativePath: true
@@ -222,11 +228,25 @@ module.exports = {
             },
             {
                 test: /\.(pdf|txt|doc|docx)$/,
-                use: ['file-loader']
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                        }                        
+                    }
+                ]
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
-                use: ['file-loader']
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                        }                        
+                    }
+                ]
             },
             {
                 test: /\.js$/,
