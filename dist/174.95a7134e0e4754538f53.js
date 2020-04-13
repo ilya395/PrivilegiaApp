@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[174],{567:function(p,s,o){"use strict";o.r(s),s.default=o.p+"temps/img/for_mobs/sl-2.jpg"}}]);

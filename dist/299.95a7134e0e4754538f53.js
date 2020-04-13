@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[299],{522:function(s,t,w){"use strict";w.r(t),t.default=w.p+"temps/fonts/Oswald/Oswald-Regular.ttf"}}]);

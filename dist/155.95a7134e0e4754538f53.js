@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[155],{273:function(p,n,o){"use strict";o.r(n),n.default=o.p+"temps/pics/ipoteka/gazprombank.png"}}]);

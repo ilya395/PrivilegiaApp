@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[154],{272:function(p,n,i){"use strict";i.r(n),n.default=i.p+"temps/pics/ipoteka/bin.png"}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[71],{188:function(n,p,e){"use strict";e.r(p),p.default=e.p+"temps/img/entrance/PRGY_002.png"}}]);

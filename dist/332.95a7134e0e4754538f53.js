@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[332],{555:function(e,o,t){"use strict";t.r(o),o.default=t.p+"temps/fonts/geometria/Geometria.woff"}}]);

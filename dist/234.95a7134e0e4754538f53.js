@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[234],{627:function(p,s,c){"use strict";c.r(s),s.default=c.p+"temps/pics/2019/07/05/privcall4.jpg"}}]);

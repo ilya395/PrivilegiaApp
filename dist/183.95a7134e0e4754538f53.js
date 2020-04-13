@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[183],{576:function(p,s,i){"use strict";i.r(s),s.default=i.p+"temps/img/kul-sharif.jpg"}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[246],{639:function(p,s,n){"use strict";n.r(s),s.default=n.p+"temps/pics/2020/2/20/smu2202.jpg"}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[181],{574:function(p,t,e){"use strict";e.r(t),t.default=e.p+"temps/img/ipoteka/investtorg.jpg"}}]);

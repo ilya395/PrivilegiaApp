@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[84],{201:function(p,n,s){"use strict";s.r(n),n.default=s.p+"temps/img/fb.png"}}]);

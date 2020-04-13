@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[277],{500:function(t,e,n){"use strict";n.r(e),e.default=n.p+"temps/fonts/Montserrat_Alternates/MontserratAlternates-Black.ttf"}}]);

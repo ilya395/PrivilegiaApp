@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[140],{257:function(p,n,o){"use strict";o.r(n),n.default=o.p+"temps/img/vk-mob.png"}}]);

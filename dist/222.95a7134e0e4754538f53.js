@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[222],{615:function(p,e,n){"use strict";n.r(e),e.default=n.p+"temps/pics/2019/04/18/newoffice.jpg"}}]);

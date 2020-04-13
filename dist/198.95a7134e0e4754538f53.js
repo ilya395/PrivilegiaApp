@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[198],{591:function(p,n,s){"use strict";s.r(n),n.default=s.p+"temps/pics/2018/09/03/vtb_norv.jpg"}}]);

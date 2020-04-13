@@ -24,7 +24,7 @@ function advantagesTemplate() {
                 </div>
             </form>
         </div>
-        <div class="thnk-block">
+        <div class="thnk-block transparent">
             <h1>Спасибо!</h1>
             <p>Мы свяжемся с Вами в ближайшее время</p>
         </div>
@@ -81,11 +81,11 @@ function handler(){
                 }
             )
         }
-        // if ( (phone.value != null && phone.value != undefined && phone.value != '' && whatWithPhone == true) && (titleIsOkey(title.value) == true) ) {
-        //     sendAjax(data)
-        //     console.log(data)
-        // }
-        sendAjax(data)
+        
+        if ( (phone.value != null && phone.value != undefined && phone.value != '' && whatWithPhone == true) && (titleIsOkey(title.value) == true) ) {
+            console.log(phone.value, whatWithPhone, titleIsOkey(title.value))  
+            sendAjax(data)
+        }
     }
     const sendBtn = document.querySelector('.modal.ipoteka-modal form button')
     sendBtn.addEventListener('click', send)
@@ -144,7 +144,6 @@ function handler(){
                 "+7(977)777-77-77",
                 "+7(988)888-88-88",
                 "+7(999)999-99-99"
-                // "+7(912)345-67-89"
                 ];
             for( var i = 0; i < badNumbers.length; i++) {
                 if (n == badNumbers[i]) {
@@ -167,21 +166,25 @@ function handler(){
             'Оплата материнским капиталом',
             'Вызвана форма со старницы "Ипотека от 8,7%"'
         ]
-        let answer = titles.forEach((item) => {
+        let answer = false
+        titles.forEach((item) => {
             if (item === t) {
-                return true
+                answer = true
             } else {
-                return false
+                answer = false
             }
         })
+        return answer
     }
     function inputBlockSeccess() {
         console.log('start')
         let thnkElem = document.querySelector('.modal.ipoteka-modal .thnk-block')
 
         thnkElem.classList.add('vkl')
-        thnkElem.classList.remove('transparent')
-        thnkElem.classList.add('movie')
+        raf(function(){
+            thnkElem.classList.remove('transparent')
+            thnkElem.classList.add('movie')
+        })
 
         setTimeout(() => {
             function handler() {
@@ -193,5 +196,12 @@ function handler(){
             thnkElem.classList.remove('movie')
             thnkElem.classList.add('transparent') 
         }, 3000)
+    }
+    function raf(fn){
+        window.requestAnimationFrame(function(){
+            window.requestAnimationFrame(function(){
+                fn();
+            });
+        });
     }
 }

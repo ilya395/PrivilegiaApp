@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[188],{581:function(e,p,i){"use strict";i.r(p),p.default=i.p+"temps/img/privilege_for_everyone/map_pic-metro.jpg"}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[159],{277:function(p,s,e){"use strict";e.r(s),s.default=e.p+"temps/pics/sales/bf/mobile-black-friday.png"}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[83],{200:function(p,n,o){"use strict";o.r(n),n.default=o.p+"temps/img/fb-mob.png"}}]);

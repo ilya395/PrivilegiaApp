@@ -1,3 +1,5 @@
+const path  = require('path')
+
 export const tpl = {
     content: footerTemplate,
     func: handler
@@ -43,6 +45,7 @@ function handler(){
     const wrap = document.querySelector('.hod-str')
     wrap.classList.add('visible')
     //
+    let localDataOfEvents = []
     render()
     //
 
@@ -119,18 +122,21 @@ function handler(){
 
     function render() {
         function block(object) {
+            console.log(object)
             let html = `
-            <li>
-                <img data-img-src="${object.thumbnailUrl}" src="${object.thumbnailUrl}">
-                <a href="${object.url}" class="mask">
+            <li data-id="${object.id}">
+                <img data-img-src="${object.preview}" src="${object.preview}">
+                <a href="/${object.alias}" class="mask">
                     <div class="date">${object.date}</div>
-                    <p>${object.title}</p>
+                    <p>${object.pagetitle}</p>
                 </a>
             </li>            
             `
             return html
         }
-        let url = 'https://jsonplaceholder.typicode.com/users'
+        let url = path.resolve(__dirname, './data_hodStr.json') // ./call_to_development.php
+        console.log(url)
+        // 'https://jsonplaceholder.typicode.com/users'
         let parent = document.querySelector('.hod-s-sl-wrapper .hod-s-sl-over')
         if (window.matchMedia('(max-width: 501px)').matches) {
             parent.classList.add('mobile')
@@ -139,12 +145,13 @@ function handler(){
         }
         let wrap = parent.querySelector('.hod-s-sl')
         
-
-        function draw(data, elem, param) {
+        function draw(data, elem, number = 5) {
+            console.log(data)
             let array = []
             for (let i of data) {
                 array.push(i)
             }
+            localDataOfEvents = array
             let str =''
             // if (!param && param != 0) {
             //     for (let j = 0; j < param; j++) {
@@ -159,8 +166,8 @@ function handler(){
             if (window.matchMedia('(max-width: 501px)').matches) {
                 str = block(data[0])
             } else {
-                for (let j of array) {
-                    str += block(j)
+                for (let j = 0; j < number; j++) {
+                    str += block(data[j])
                 }                
             }
             elem.innerHTML = str
@@ -169,11 +176,84 @@ function handler(){
         fetch(url)
             .then(response => response.json())
             .then(json => {
-                draw(json, wrap)
+                // console.log(json)
+                draw(json, wrap, 10)
             })
             .then(() => {
                 onManagement()
             })
-        
+            .then(() => {
+                onEvents()
+            })
+    }
+    function onEvents() {
+        let data = localDataOfEvents
+        let listItems = document.querySelectorAll('.hod-s-sl li')
+        listItems.forEach((item) => {
+            item.addEventListener('click', eventsHandler)
+        })
+        function eventsHandler() {
+            event.preventDefault()
+            // let thisId = (event.target.parentElement.dataset.id) ? +event.target.parentElement.dataset.id : +event.target.dataset.id
+            let thisId = +this.dataset.id
+            let clickObj = data.find((item) => {
+                if (item.id === thisId) {
+                    return item
+                }
+            })
+
+            // вызвать модалку
+            if (!document.querySelector('.modal.complex-modal')) {
+                const parent = document.querySelector('.overlay')
+                import('../otherModules/complexModal')
+                    .then((obj) => {
+                        parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
+                        return obj
+                    })
+                    .then((obj) => {
+                        obj.tpl.func() // включим внурениий функционал модуля
+                    })
+                    .then(() => {
+                        insertDataValue(clickObj)
+                    })
+            } else {   
+                $('.overlay .complex-modal').css('display', 'block');
+                $('.overlay').fadeIn();
+
+                insertDataValue(clickObj);           
+            }
+            // воткнуть данные
+            function insertDataValue(obj) {
+
+                let imgsTpl = function(param) {
+                    let html = `
+                    <a href="${param}" data-fancybox="gallery">
+                        <img src="${param}" >
+                    </a>                    
+                    `
+                    return html
+                }
+
+                let imgWrap = document.querySelector('.modal.complex-modal .top-image')
+                imgWrap.innerHTML = ''
+
+                let modalGallery = document.createElement('div')
+                modalGallery.classList.add('gallery-wr', 'gallery-imgs-row')
+                imgWrap.append(modalGallery)
+
+                let strWithImgs = ''
+                for (let key in obj.gallery) {
+                    strWithImgs += imgsTpl(obj.gallery[key])
+                }
+
+                document.querySelector('.complex-modal .top-image').style.height = 'auto'
+
+                modalGallery.innerHTML = strWithImgs
+
+                ////////////////////////////////////////////////////////////////////////
+
+                let textWrap = document.querySelector('.modal.complex-modal .bottom-text')
+            }
+        }
     }
 }

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[131],{248:function(e,i,p){"use strict";p.r(i),i.default=p.p+"temps/img/salex/privilegia-site-more-2.png"}}]);

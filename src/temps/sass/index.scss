@@ -85,3 +85,24 @@
 .thnk-block.transparent {
   opacity: 0;  
 }
+
+/*****************************/
+
+.gallery-imgs-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 500px) {
+  .gallery-imgs-row a {
+    flex-basis: 100%;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
+}
+@media (min-width: 500px) {
+  .gallery-imgs-row a {
+    flex-basis: 33.33333%;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
+}

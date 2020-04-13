@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[184],{577:function(e,p,i){"use strict";i.r(p),p.default=i.p+"temps/img/privilege_for_everyone/PRVLG_1200_640.jpg"}}]);

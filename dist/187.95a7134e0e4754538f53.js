@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[187],{580:function(e,p,i){"use strict";i.r(p),p.default=i.p+"temps/img/privilege_for_everyone/main_pic.jpg"}}]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[80],{197:function(n,p,e){"use strict";e.r(p),p.default=e.p+"temps/img/entrance/priv-icon5.png"}}]);

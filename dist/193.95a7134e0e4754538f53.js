@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[193],{586:function(p,n,s){"use strict";s.r(n),n.default=s.p+"temps/img/ura.jpg"}}]);

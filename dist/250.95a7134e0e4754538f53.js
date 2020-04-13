@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[250],{646:function(p,s,e){"use strict";e.r(s),s.default=e.p+"temps/pics/ipoteka/abb.jpg"}}]);
