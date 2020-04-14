@@ -92,17 +92,29 @@
   display: flex;
   flex-wrap: wrap;
 }
+.gallery-imgs-row a {
+  flex-basis: 33.33333%;
+  flex-shrink: 1;
+  flex-grow: 0;
+  padding: 5px;
+}
 @media (max-width: 500px) {
-  .gallery-imgs-row a {
-    flex-basis: 100%;
-    flex-shrink: 1;
-    flex-grow: 0;
+  .gallery-imgs-row {
+    padding: 5px 5px 0px 5px;
+  }
+  .bottom-text {
+    padding: 30px 15px;
   }
 }
 @media (min-width: 500px) {
-  .gallery-imgs-row a {
-    flex-basis: 33.33333%;
-    flex-shrink: 1;
-    flex-grow: 0;
+  .gallery-imgs-row {
+    padding: 40px 65px 0px 65px;
   }
+  .bottom-text {
+    padding: 40px;
+  }
+}
+
+.ajax_form {
+  position: relative;
 }

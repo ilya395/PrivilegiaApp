@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[196],{589:function(p,s,n){"use strict";n.r(s),s.default=n.p+"temps/pics/2018/08/28/socseti_norv-min.jpg"}}]);

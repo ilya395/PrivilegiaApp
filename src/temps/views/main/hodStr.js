@@ -1,3 +1,5 @@
+import { hodStrModal } from '../../models/Modal'
+
 const path  = require('path')
 
 export const tpl = {
@@ -151,6 +153,7 @@ function handler(){
             for (let i of data) {
                 array.push(i)
             }
+            array.sort(sortedArrayOnDate)
             localDataOfEvents = array
             let str =''
             // if (!param && param != 0) {
@@ -202,58 +205,73 @@ function handler(){
                 }
             })
 
-            // вызвать модалку
-            if (!document.querySelector('.modal.complex-modal')) {
-                const parent = document.querySelector('.overlay')
-                import('../otherModules/complexModal')
-                    .then((obj) => {
-                        parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
-                        return obj
-                    })
-                    .then((obj) => {
-                        obj.tpl.func() // включим внурениий функционал модуля
-                    })
-                    .then(() => {
-                        insertDataValue(clickObj)
-                    })
-            } else {   
-                $('.overlay .complex-modal').css('display', 'block');
-                $('.overlay').fadeIn();
+            let modalochka = hodStrModal(clickObj)
+            modalochka.open()
 
-                insertDataValue(clickObj);           
-            }
-            // воткнуть данные
-            function insertDataValue(obj) {
+            // // вызвать модалку
+            // if (!document.querySelector('.modal.complex-modal')) {
+            //     const parent = document.querySelector('.overlay')
+            //     import('../otherModules/complexModal')
+            //         .then((obj) => {
+            //             parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
+            //             return obj
+            //         })
+            //         .then((obj) => {
+            //             obj.tpl.func() // включим внурениий функционал модуля
+            //         })
+            //         .then(() => {
+            //             insertDataValue(clickObj)
+            //         })
+            // } else {   
+            //     $('.overlay .complex-modal').css('display', 'block');
+            //     $('.overlay').fadeIn();
 
-                let imgsTpl = function(param) {
-                    let html = `
-                    <a href="${param}" data-fancybox="gallery">
-                        <img src="${param}" >
-                    </a>                    
-                    `
-                    return html
-                }
+            //     insertDataValue(clickObj);           
+            // }
+            // // воткнуть данные
+            // function insertDataValue(obj) {
 
-                let imgWrap = document.querySelector('.modal.complex-modal .top-image')
-                imgWrap.innerHTML = ''
+            //     let imgsTpl = function(param) {
+            //         let html = `
+            //         <a href="${param}" data-fancybox="gallery">
+            //             <img src="${param}" >
+            //         </a>                    
+            //         `
+            //         return html
+            //     }
 
-                let modalGallery = document.createElement('div')
-                modalGallery.classList.add('gallery-wr', 'gallery-imgs-row')
-                imgWrap.append(modalGallery)
+            //     // удалить мусор?
 
-                let strWithImgs = ''
-                for (let key in obj.gallery) {
-                    strWithImgs += imgsTpl(obj.gallery[key])
-                }
+            //     let imgWrap = document.querySelector('.modal.complex-modal .top-image')
+            //     imgWrap.innerHTML = ''
 
-                document.querySelector('.complex-modal .top-image').style.height = 'auto'
+            //     let modalGallery = document.createElement('div')
+            //     modalGallery.classList.add('gallery-wr', 'gallery-imgs-row')
+            //     imgWrap.append(modalGallery)
 
-                modalGallery.innerHTML = strWithImgs
+            //     let strWithImgs = ''
+            //     for (let key in obj.gallery) {
+            //         strWithImgs += imgsTpl(obj.gallery[key])
+            //     }
 
-                ////////////////////////////////////////////////////////////////////////
+            //     document.querySelector('.complex-modal .top-image').style.height = 'auto'
 
-                let textWrap = document.querySelector('.modal.complex-modal .bottom-text')
-            }
+            //     modalGallery.innerHTML = strWithImgs
+
+            //     ////////////////////////////////////////////////////////////////////////
+
+            //     let textWrap = document.querySelector('.modal.complex-modal .bottom-text')
+
+            //     textWrap.innerHTML = obj.content
+            //     textWrap.insertAdjacentHTML('afterbegin', `<h3>${obj.pagetitle}</h3`)
+            //     textWrap.insertAdjacentHTML('afterbegin', `<div class="label">${obj.date}</div>`)
+            // }
         }
+    }
+    function sortedArrayOnDate(a,b){
+
+        if (a['time-stamp'] > b['time-stamp']) return 1;
+        if (a['time-stamp'] == b['time-stamp']) return 0;
+        if (a['time-stamp'] < b['time-stamp']) return -1;
     }
 }

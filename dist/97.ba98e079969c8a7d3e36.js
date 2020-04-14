@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[97],{214:function(n,p,s){"use strict";s.r(p),p.default=s.p+"temps/img/landings/land1-mob2.png"}}]);

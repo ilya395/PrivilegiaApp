@@ -1,3 +1,7 @@
+const path  = require('path')
+
+import { complexModal } from '../../models/Modal'
+
 export const tpl = {
     content: footerTemplate,
     func: handler
@@ -195,23 +199,24 @@ function handler(){
         let manageBtn = document.querySelector('.complex-tab-btn.active')
         flag = manageBtn.dataset.title
 
-        let url = 'https://jsonplaceholder.typicode.com/posts/'
+        let url = path.resolve(__dirname, './data_about-complex.json')
+        // 'https://jsonplaceholder.typicode.com/posts/'
 
         // let localData = []
 
         switch (flag) {
             case 'akcii':
-                url = 'https://jsonplaceholder.typicode.com/comments/';
+                url = path.resolve(__dirname, './data_akcii.json');
                 parentBlock = cc_akcii;
                 localData = localDataAkcii;
                 break;
             case 'events':
-                url = 'https://jsonplaceholder.typicode.com/todos/';
+                url = path.resolve(__dirname, './data_events.json');
                 parentBlock = cc_news;
                 localData = localDataEvents;
                 break;
             default: // about
-                url = 'https://jsonplaceholder.typicode.com/posts/';
+                url = path.resolve(__dirname, './data_about-complex.json');
                 parentBlock = cc_about;
                 localData = localDataAbout;
         }
@@ -219,35 +224,44 @@ function handler(){
             .then(response => response.json())
             .then(json => {
                 console.log(json)
+                let endOfArray = 5
                 switch (flag) {
                     case 'akcii':
                         localData = localDataAkcii = json;
+                        endOfArray = 5
                         break;
                     case 'events':
                         localData = localDataEvents = json;
+                        endOfArray = 10
                         break;
                     default: // about
                         localData = localDataAbout = json;
+                        endOfArray = 5
                 }
-                draw(localData, parentBlock, 5)
+                draw(localData, parentBlock, endOfArray)
             })
     }
     function draw(object, block, param) {
-        let lengthOfObject = param || 5
+        let weNeedMore = true
         let array = []
         for (let i of object) {
             array.push(i)
         }
-        // array.sort(compareNumeric)
+        let lengthOfObject = param || 5
+        if (array.length < lengthOfObject) {
+            lengthOfObject = array.length
+            weNeedMore = false
+        }
+        array.sort(compareNumeric)
         function block_1(obj) {
             let html = `
             <div class="complex-adv-top">
                 <div id="${obj.id}" class="complex-item complex-item-l cm-open  af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                    <div class="image"><img src=""></div>
+                    <div class="image"><img src="${obj.preview}"></div>
                     <div class="bottom">
                         <div class="label"></div>
                         <h2>${obj.title}</h2>
-                        <p>[[+description]]</p>
+                        <p>${obj.description}</p>
                     </div>
                 </div>        
             `
@@ -257,11 +271,11 @@ function handler(){
             let html = `
             <div class="complex-adv-top">
                 <div id="${obj.id}" class="complex-item complex-item-l cm-open  af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                    <div class="image"><img src=""></div>
+                    <div class="image"><img src="${obj.preview}"></div>
                     <div class="bottom">
                         <div class="label"></div>
                         <h2>${obj.title}</h2>
-                        <p>description</p>
+                        <p>${obj.description}</p>
                     </div>
                 </div> 
             </div>
@@ -272,7 +286,7 @@ function handler(){
             let html = `
             <div>
                 <div id="${obj.id}" class="complex-item cm-open af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                    <div class="image"><img src=""></div>
+                    <div class="image"><img src="${obj.preview}"></div>
                     <div class="bottom">
                         <div class="label"></div>
                         <h3>${obj.title}</h3>
@@ -285,7 +299,7 @@ function handler(){
             let html = `
                 <div>
                     <div id="${obj.id}" class="complex-item cm-open af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                        <div class="image"><img src=""></div>
+                        <div class="image"><img src="${obj.preview}"></div>
                         <div class="bottom">
                             <div class="label"></div>
                             <h3>${obj.title}</h3>
@@ -299,7 +313,7 @@ function handler(){
         function block_3(obj) {
             let html = `
                         <div id="${obj.id}" class="complex-item cm-open af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                        <div class="image"><img src=""></div>
+                        <div class="image"><img src="${obj.preview}"></div>
                         <div class="bottom">
                             <div class="label"></div>
                             <h3>${obj.title}</h3>
@@ -314,7 +328,7 @@ function handler(){
             let html = `
             <div class="complex-adv-bottom">
                 <div id="${obj.id}" class="complex-item cm-open af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                    <div class="image"><img src=""></div>
+                    <div class="image"><img src="${obj.preview}"></div>
                     <div class="bottom">
                         <div class="label"></div>
                         <h3>${obj.title}</h3>
@@ -327,7 +341,7 @@ function handler(){
             let html = `
             <div class="complex-adv-bottom">
                 <div id="${obj.id}" class="complex-item cm-open af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                    <div class="image"><img src=""></div>
+                    <div class="image"><img src="${obj.preview}"></div>
                     <div class="bottom">
                         <div class="label"></div>
                         <h3>${obj.title}</h3>
@@ -340,7 +354,7 @@ function handler(){
         function block_5(obj) {
             let html = `
                 <div id="${obj.id}" class="complex-item complex-item-m cm-open af_start-btn" data-action="getResources" data-tpl="gr_complex-modal" data-resources="[[+id]]">
-                    <div class="image"><img src=""></div>
+                    <div class="image"><img src="${obj.preview}"></div>
                     <div class="bottom">
                         <div class="label"></div>
                         <h3>${obj.title}</h3>
@@ -378,55 +392,130 @@ function handler(){
                 console.log('I dont know, what to do with it: ', j)
             }
         }
+        if (weNeedMore == true) {
+            str += `
+            <div class="button all-news-btn">загрузить еще</div>
+            `
+        }
         block.innerHTML = str
         //
         function compareNumeric(a, b) {
-            if (a > b) return 1;
-            if (a == b) return 0;
-            if (a < b) return -1;
+            if (a['time-stamp'] > b['time-stamp']) return 1;
+            if (a['time-stamp'] == b['time-stamp']) return 0;
+            if (a['time-stamp'] < b['time-stamp']) return -1;
         }
         //
-        let wrap = document.querySelector('.cc_item.active')
+        let wrap = document.querySelector('.cc_item.active') // .querySelectorAll('.complex-item')
         let items = wrap.querySelectorAll('.complex-item')
+        //
+        if (weNeedMore == true) {
+            function drawMore() {
+                block.querySelector('.button.all-news-btn').style.display = 'none'
+                let str = ``
+                let notYetHave = []
+                for (let j = lengthOfObject; j < array.length; j++) {
+                    notYetHave.push(array[j])
+                    if (j + 1 == 1 || (j + 1) % 5 == 1 ) {
+                        if (j == array.length - 1) {
+                            str += block_1_last(array[j])
+                        } else {
+                            str += block_1(array[j])
+                        }
+                    } else if (j + 1 == 2 || (j + 1) % 5 == 2) {
+                        if (j == array.length - 1) {
+                            str += block_2_last(array[j])
+                        } else {
+                            str += block_2(array[j])
+                        }
+                    } else if (j + 1 == 3 || (j + 1) % 5 == 3) {
+                        str += block_3(array[j])
+                    } else if (j + 1 == 4 || (j + 1) % 5 == 4) {
+                        if (j == array.length - 1) {
+                            str += block_4_last(array[j])
+                        } else {
+                            str += block_4(array[j])
+                        }
+                    } else if (j + 1 == 5 || (j + 1) % 5 == 0) {
+                        str += block_5(array[j])
+                    } else {
+                        console.log('I dont know, what to do with it: ', j)
+                    }
+                }
+                block.insertAdjacentHTML('beforeend', str)
+                //
+                block.querySelector('.button.all-news-btn').removeEventListener('click', drawMore)
+                //
+                items = wrap.querySelectorAll('.complex-item')
+            }
+            block.querySelector('.button.all-news-btn').addEventListener('click', drawMore)
+        }
+        //
         function modalHendler() {
             console.log('тоткрыть модалку!')
-            let clickedElem = this
-            console.log(this)
-            console.log(localData)
-            // вызвать модалку
-            if (!document.querySelector('.modal.complex-modal')) {
-                const parent = document.querySelector('.overlay')
-                import('../otherModules/complexModal')
-                    .then((obj) => {
-                        parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
-                        return obj
-                    })
-                    .then((obj) => {
-                        obj.tpl.func() // включим внурениий функционал модуля
-                    })
-                    .then(() => {
-                        insertData(clickedElem)
-                    })
-            } else {   
-                $('.overlay .complex-modal').css('display', 'block');
-                $('.overlay').fadeIn();
+            // let clickedElem = this
+            // let items = document.querySelectorAll('.complex-item')
+            let clickedElem = ''
+            for (let k of items) {
+                if (k.contains(event.target)) {
+                    clickedElem = k
 
-                insertData(clickedElem);           
+                    let modalka = complexModal(clickedElem, localData)
+                    modalka.open()
+                }
             }
-            // воткнуть данные
-            function insertData(el) {
-                let number = el.getAttribute('id')
-                let modal = document.getElementById('complex-modal')
-                let title = modal.querySelector('.bottom-text h2')
-                let result = localData.find((item) => {
-                    item.id == number
-                    return item
-                })
-                title.innerText = result.title
-            }
+
+            // // вызвать модалку
+            // if (!document.querySelector('.modal.complex-modal')) {
+            //     const parent = document.querySelector('.overlay')
+            //     import('../otherModules/complexModal')
+            //         .then((obj) => {
+            //             parent.insertAdjacentHTML('afterbegin', obj.tpl.content())
+            //             return obj
+            //         })
+            //         .then((obj) => {
+            //             obj.tpl.func() // включим внурениий функционал модуля
+            //         })
+            //         .then(() => {
+            //             insertData(clickedElem)
+            //         })
+            // } else {   
+            //     $('.overlay .complex-modal').css('display', 'block');
+            //     $('.overlay').fadeIn();
+
+            //     insertData(clickedElem);           
+            // }
+            // // воткнуть данные
+            // function insertData(el) {
+            //     let modal = document.getElementById('complex-modal')
+            //     let content = modal.querySelector('.complex-modal__content')
+            //     content.innerHTML = ''
+
+            //     let number = +el.getAttribute('id')
+            //     let result = localData.find((item) => {
+            //         if (item.id == number) {
+            //             return item
+            //         }
+            //     })
+            //     console.log(result)
+
+            //     let imgWrap = document.createElement('div')
+            //     imgWrap.classList.add('top-image')
+            //     content.append(imgWrap)
+            //     imgWrap.innerHTML = `<img src="${result.preview}">`
+
+            //     let contentWrap = document.createElement('div')
+            //     contentWrap.classList.add('bottom-text')
+            //     content.append(contentWrap)
+            //     contentWrap.innerHTML = `
+            //     <div class="label"></div>
+            //     <h2>${result.title}</h2>
+            //     ${result.content}
+            //     `
+            // }
         }
-        items.forEach((item) => {
-            item.addEventListener('click', modalHendler)
-        })
+        // items.forEach((item) => {
+        //     item.addEventListener('click', modalHendler)
+        // })
+        document.querySelector('.complex-content').addEventListener('click', modalHendler)
     }
 }

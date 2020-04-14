@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[40],{157:function(p,n,s){"use strict";s.r(n),n.default=s.p+"temps/img/catalog/bs1-3.png"}}]);

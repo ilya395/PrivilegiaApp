@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[159],{277:function(p,n,s){"use strict";s.r(n),n.default=s.p+"temps/pics/ipoteka/rosbank.png"}}]);

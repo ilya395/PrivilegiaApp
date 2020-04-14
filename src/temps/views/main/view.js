@@ -31,4 +31,8 @@ function handler(){
     console.log('контент модуля активирован!')
     const wrap = document.querySelector('.view')
     wrap.classList.add('visible')
+    //
+    $('.view .view-button').click(function() {
+        $('.view .mask').fadeOut();
+    });
 }

@@ -53,7 +53,7 @@ $(document).ready(function() {
     //     $('.complex-adv .all-news-btn').css('display', 'none');
     // });
     
-    
+    // views +
     // $('.view .view-button').click(function() {
     //     $('.view .mask').fadeOut();
     // });

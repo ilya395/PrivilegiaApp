@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[317],{540:function(t,e,o){"use strict";o.r(e),e.default=o.p+"temps/fonts/geometria/Geometria-Italic.ttf"}}]);

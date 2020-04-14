@@ -9,31 +9,11 @@ function advantagesTemplate() {
         <div class="close">
             <img src="temps/img/catalog/close.png">
         </div>
-        <div class="top-image">
-            <img src="temps/img/1n.png">
-        </div>
-        <div class="bottom-text">
-            <div class="label">
-                О комплексе
+        <div class="complex-modal__content">
+            <div class="top-image">
             </div>
-            <h2>Запоминающийся  внешний вид</h2>
-            <p>
-                Прогуливаясь по иностранным городам, мы в первую очередь обращаем внимание на местную архитектуру. Внешний вид «Привилегии» — еще одно преимущество комплекса. Яркий фасад из кирпича с цветными вставками выполнен в лучших традициях западноевропейских городов и гармонирует с природным окружением дома.
-            </p>
-            <ul>
-                <li>
-                    Современный авторский проект
-                </li>
-                <li>
-                    Качественные отделочные материалы
-                </li>
-                <li>
-                    Панорамное остекление балконов
-                </li>
-                <li>
-                    Разноуровневый рельеф комплекса
-                </li>
-            </ul>
+            <div class="bottom-text">
+            </div>
         </div>
     </div>
     `
@@ -73,10 +53,10 @@ function handler(){
 
         //
 
-        $('.overlay .close').click(function() {
-            $('.overlay').fadeOut();
-            $('.overlay .modal').fadeOut();
-        });
+        // $('.overlay .close').click(function() {
+        //     $('.overlay').fadeOut();
+        //     $('.overlay .modal').fadeOut();
+        // });
 
         //
         

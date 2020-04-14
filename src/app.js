@@ -28,30 +28,30 @@ import './temps/sass/index.sass'
 ///////////////////////////////////////////////////////////////
 
 // preloader
-function preloaderPromise(elem) {
-    return new Promise(function(resolve, reject){
-        console.log(elem)
-        function handler() {
-            resolve(elem)
-            //
-            elem.removeEventListener('transitionend', handler)
-        }
-        elem.addEventListener('transitionend', handler)    
-        elem.classList.add('transparent')
-    })
-}
+// function preloaderPromise(elem) {
+//     return new Promise(function(resolve, reject){
+//         console.log(elem)
+//         function handler() {
+//             resolve(elem)
+//             //
+//             elem.removeEventListener('transitionend', handler)
+//         }
+//         elem.addEventListener('transitionend', handler)    
+//         elem.classList.add('transparent')
+//     })
+// }
 
-function closePreloder() {
-    console.log('preloader start')
-    let preloader = document.querySelector('.preloader')
-    let promise = preloaderPromise(preloader)
-    promise.then((obj) => {
-        console.log(obj)
-        obj.classList.add('none')
+// function closePreloder() {
+//     console.log('preloader start')
+//     let preloader = document.querySelector('.preloader')
+//     let promise = preloaderPromise(preloader)
+//     promise.then((obj) => {
+//         console.log(obj)
+//         obj.classList.add('none')
 
-    })
-}
-window.addEventListener('load', closePreloder)
+//     })
+// }
+// window.addEventListener('load', closePreloder)
 
 ///////////////////////////////////////////////////////////////
 
